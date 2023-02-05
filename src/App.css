@@ -1,38 +1,27 @@
-.App {
+.timer {
+  display: inline-block;
+  margin: 20px;
+  width: 350px;
+}
+.clockFace {
+  padding: 20px;
+  background-color: rgb(219, 192, 156);
   text-align: center;
+
+  font-size: 26px;
+  color: rgb(33, 179, 130);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: bisque;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:not(:last-child) {
+  margin-right: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  filter: brightness(80%);
 }
