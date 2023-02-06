@@ -25,3 +25,14 @@
 .btn:hover {
   filter: brightness(80%);
 }
+
+.lapTime {
+  padding-left: 20px;
+  font-size: 22px;
+  color: rgb(42, 136, 139);
+  background-color: rgb(233, 220, 201);
+}
+
+.container {
+  display: flex;
+}

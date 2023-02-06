@@ -18,9 +18,9 @@ export const tick = (arrTime) => {
     hour = 0;
   }
 
-  console.log(
-    getPadTime(hour) + ":" + getPadTime(minutes) + ":" + getPadTime(sec)
-  );
+  // console.log(
+  //   getPadTime(hour) + ":" + getPadTime(minutes) + ":" + getPadTime(sec)
+  // );
   return getPadTime(hour) + ":" + getPadTime(minutes) + ":" + getPadTime(sec);
 };
 
