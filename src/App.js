@@ -6,7 +6,7 @@ function App() {
     <div className="container">
       <Stopwatch time="00:00:00" />
 
-      <Stopwatch time="00:00:00:0000" />
+      <Stopwatch time="00:00:00:000" />
     </div>
   );
 }

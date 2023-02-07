@@ -17,6 +17,7 @@ export default function Buttons({
   isStarting,
   isCounting,
   isStoping,
+  isReseting,
 }) {
   const [startSound] = useSound(boop);
   const [stopSound] = useSound(drums);
@@ -73,6 +74,7 @@ export default function Buttons({
             resetSound();
             handleClickReset();
           }}
+          disabled={isReseting}
         >
           Reset
         </Button>

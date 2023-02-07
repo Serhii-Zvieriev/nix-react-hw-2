@@ -13,6 +13,7 @@ export default function Stopwatch({ time }) {
   const [isCounting, setIsCounting] = useState(false);
   const [isStarting, setIsStarting] = useState(false);
   const [isStoping, setIsStoping] = useState(true);
+  const [isReseting, setIsReseting] = useState(true);
 
   const arrTime = amountOfTime.split(":").map((el) => +el);
 
@@ -40,6 +41,7 @@ export default function Stopwatch({ time }) {
     setIsStarting(true);
     setIsCounting(true);
     setIsStoping(false);
+    setIsReseting(false);
   };
   const handleClickContinue = () => {
     setIsCounting(true);
@@ -51,13 +53,15 @@ export default function Stopwatch({ time }) {
     newArr.push(amountOfTime);
     setLapTime(newArr);
     setIsStoping(true);
+    setIsReseting(false);
   };
   const handleClickReset = () => {
     setAmountOfTime(time);
     setIsCounting(false);
     setIsStarting(false);
     setLapTime([]);
-    setIsStoping(false);
+    setIsStoping(true);
+    setIsReseting(true);
   };
 
   return (
@@ -71,6 +75,7 @@ export default function Stopwatch({ time }) {
         isStarting={isStarting}
         isCounting={isCounting}
         isStoping={isStoping}
+        isReseting={isReseting}
       />
       <LapTime lapTime={lapTime} />
     </div>

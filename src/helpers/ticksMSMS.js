@@ -1,15 +1,22 @@
 import { getPadTime, getPadTimeMSMS } from "./getPadTime";
 
+let startTime = new Date().getTime();
+
 export const tickMSMS = (arrTime) => {
   let MSMS = arrTime[3];
   let sec = arrTime[2];
   let minutes = arrTime[1];
   let hour = arrTime[0];
 
-  MSMS += 1;
-  if (MSMS >= 1000) {
+  MSMS = new Date().getTime() - startTime; // считает вроде бы правильно, но начинает отсчет
+  // не с 00 секунд а с 01 секунды, потому что при первом отнимании разница больше 1000
+  //  а уже со второй итерации всё становиться нормально
+  if (new Date().getTime() - startTime > 1010) {
+    sec += -1; // это конечно костыль, но только так получаеться избавиться от первой итерации
+  }
+  if (MSMS > 999) {
     sec += 1;
-    MSMS = MSMS - 1000;
+    startTime = new Date().getTime();
   }
 
   if (sec >= 60) {
@@ -24,16 +31,6 @@ export const tickMSMS = (arrTime) => {
     hour = 0;
   }
 
-  //   console.log(
-  //     getPadTime(hour) +
-  //       ":" +
-  //       getPadTime(minutes) +
-  //       ":" +
-  //       getPadTime(sec) +
-  //       ":" +
-  //       getPadTimeMSMS(MSMS)
-  //   );
-
   return (
     getPadTime(hour) +
     ":" +
@@ -44,7 +41,3 @@ export const tickMSMS = (arrTime) => {
     getPadTimeMSMS(MSMS)
   );
 };
-
-// setInterval(() => console.log(tick()), 1);
-
-// setInterval(() => console.log(tickMSMS("00:00:00:0000")), 1);
